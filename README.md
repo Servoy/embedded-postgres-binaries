@@ -120,5 +120,12 @@ Optional parameters:
   - default value: executables are resolved from `/usr/bin` directory or downloaded from https://github.com/multiarch/qemu-user-static/releases/download/v2.12.0
   - supported values: a path to a directory containing qemu executables
 
+## Note
+In case of this error:
+"docker: Error response from daemon: cgroups: cgroup mountpoint does not exist: unknown."
+execute the following commands:
+sudo mkdir /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+
 ## License
 The project is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0.html).
