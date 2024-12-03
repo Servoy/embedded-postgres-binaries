@@ -105,9 +105,7 @@ if [ "$PLATFORM_NAME" = "darwin" ] ; then
     lib/libcrypto*.dylib \
     lib/libedit*.dylib \
     lib/postgresql/*.* \
-    bin/initdb \
-    bin/pg_ctl \
-    bin/postgres
+    bin
 
 elif [ "$PLATFORM_NAME" = "windows" ] ; then
 
@@ -117,9 +115,7 @@ elif [ "$PLATFORM_NAME" = "windows" ] ; then
     lib/libxml2.lib \
     $([ -f lib/ssleay32.lib ] && echo lib/ssleay32.lib lib/ssleay32MD.lib || echo lib/libssl.lib lib/libcrypto.lib) \
     lib/*.dll \
-    bin/initdb.exe \
-    bin/pg_ctl.exe \
-    bin/postgres.exe \
+    bin/*.exe \
     bin/*.dll
 
 elif [ "$PLATFORM_NAME" = "linux" ] ; then
@@ -127,8 +123,6 @@ elif [ "$PLATFORM_NAME" = "linux" ] ; then
   tar -cJvf $TRG_DIR/postgres-linux-$NORM_ARCH_NAME.txz \
     share/postgresql \
     lib \
-    bin/initdb \
-    bin/pg_ctl \
-    bin/postgres
+    bin
 
 fi
